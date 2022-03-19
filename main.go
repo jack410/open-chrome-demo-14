@@ -1,6 +1,7 @@
 package main
 
 import (
+	"embed"
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"io/ioutil"
@@ -8,6 +9,10 @@ import (
 	"os/exec"
 	"os/signal"
 )
+
+//下面这句话的意思是打包go的时候把后面这个目录打包进去
+//go:embed frontend/dist/*
+var FS embed.FS
 
 func main() {
 	go func() {
